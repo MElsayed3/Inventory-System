@@ -1,13 +1,15 @@
 // server/db.js
 
+require('dotenv').config();
+
 const { Pool } = require('pg');
 
 const pool = new Pool({
-    user: 'inventory_user',     
-    host: 'localhost',
-    database: 'inventory_db',    
-    password: '12341234', 
-    port: 5432,
+    user: process.env.DB_USER,        // Read from .env
+    host: process.env.DB_HOST,        // Read from .env
+    database: process.env.DB_DATABASE, // Read from .env
+    password: process.env.DB_PASSWORD, // Read from .env
+    port: process.env.DB_PORT,        // Read from .env
 });
 
 // Test connection
