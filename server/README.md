@@ -26,11 +26,21 @@ This document details the backend API for the Inventory Management System. The s
 ### 3.1 Prerequisites
 
 Ensure you have **Node.js** and **PostgreSQL** installed on your system.
+### Node.js Verification:
+
+Open your terminal or command prompt.
+
+Verify Node.js is installed by checking its version (I recommend version 16 or newer):
+
+```Bash
+node -v
+ ```
+If this command fails, you must download and install Node.js from their official website.
 
 ### 3.2 Installation Steps
 
 1.  **Navigate to the Server Directory:**
-    ```bash
+    ```
     cd server
     ```
 2.  **Install Dependencies:**
@@ -42,7 +52,7 @@ Ensure you have **Node.js** and **PostgreSQL** installed on your system.
 
 You must create a file named **`.env`** inside the `server/` directory and configure your credentials. **Replace placeholder values with actual data.**
 
-```bash
+```
 # Example .env file content
 DB_USER=inventory_user
 DB_HOST=localhost
@@ -84,3 +94,6 @@ All protected routes require a valid JWT Token passed in the Authorization heade
 ```
  Header: Authorization: Bearer [JWT Token] 
 ```
+
+
+
