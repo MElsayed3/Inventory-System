@@ -1,7 +1,11 @@
+// src/App.tsx
+// Defines all application routes (Routes) and implements basic authentication protection.
+
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
-// سنقوم باستيراد مكونات أخرى لاحقاً (Dashboard, Reports, Issue, etc.)
+import DashboardPage from './pages/DashboardPage'; // <-- IMPORTED THE NEW DASHBOARD PAGE
+// سنقوم باستيراد مكونات أخرى لاحقاً (Reports, Issue, etc.)
 
 const App: React.FC = () => {
   // Simple check function for the presence of the JWT token
@@ -21,7 +25,8 @@ const App: React.FC = () => {
   };
   
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
+    // Note: Removed the bg-gray-100 class here since we are setting a dark background in LoginPage/DashboardPage
+    <div className="min-h-screen p-4"> 
       <Routes>
         {/* Default route redirects to the Login page */}
         <Route path="/" element={<Navigate to="/login" replace />} />
@@ -34,7 +39,7 @@ const App: React.FC = () => {
             path="/dashboard" 
             element={
                 <ProtectedRoute>
-                    <h1>لوحة التحكم (Dashboard)</h1>
+                    <DashboardPage /> {/* <-- USING THE NEW DashboardPage COMPONENT */}
                 </ProtectedRoute>
             } 
         />
@@ -44,7 +49,11 @@ const App: React.FC = () => {
             path="/report" 
             element={
                 <ProtectedRoute>
-                    <h1>تقرير المخزون</h1>
+                    {/* Placeholder for the Report Page */}
+                    <div style={{ direction: 'rtl', color: '#f0f0f0' }}>
+                        <h1>تقرير المخزون</h1>
+                        <p>هذه الصفحة سيتم إنشاؤها لاحقاً بواسطة Manager أو المخزن.</p>
+                    </div>
                 </ProtectedRoute>
             } 
         />
