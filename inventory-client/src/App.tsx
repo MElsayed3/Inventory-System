@@ -5,7 +5,7 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage'; // <-- IMPORTED THE NEW DASHBOARD PAGE
-// سنقوم باستيراد مكونات أخرى لاحقاً (Reports, Issue, etc.)
+// (Reports, Issue, etc.)
 
 const App: React.FC = () => {
   // Simple check function for the presence of the JWT token
